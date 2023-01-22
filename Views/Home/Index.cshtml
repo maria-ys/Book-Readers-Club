@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<body>
+    <div class="text-center welcome-page" >
+        <div>
+            <h1 class="display-4 mt-6 pt-5">Welcome</h1>
+            <h1 class="display-4">To</h1>
+            <h1 class="display-4">Book Readers&lsquo; Club</h1>
+        </div>
+        <div class="m-5">
+             <a class="btn btn-outline-success d-inline-block m-4 p-3 w-25 font-weight-bold" asp-area="" asp-controller="BookReview" asp-action="Add">Add a Review</a>
+             <a class="btn btn-outline-success d-inline-block m-4 p-3 w-25 font-weight-bold" asp-area="" asp-controller="BookReview" asp-action="BrowseIndex">Browse Reviews</a>
+        </div>
+    </div>
+</body>
+

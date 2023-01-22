@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BRC.Models.BookReview>
+@{
+    ViewData["Title"] = "All Reviews";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-success">My Reviews</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-success" asp-controller="BookReview" asp-action="Add">
+                <i class="fa-solid fa-plus"></i> &nbsp; Add New Review
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <div class="d-flex p-2 flex-wrap justify-content-around">
+            @foreach (var item in Model)
+           {
+               <div class="w-25 m-4 bg-light border border-secondary rounded" style="height:50vh;">
+                   <div class="h-50 d-flex justify-content-center align-items-center title-container" style="background-image: url('../css/images/green-bg.jpg');">@item.Title</div>
+                   <div class="m-1 px-3 d-flex align-items-center" style="height:10vh">Author: @item.Author</div>
+                   <div class="m-1 px-3 ">Rating: @item.Rating</div>
+                   <div class="text-right px-3">
+                       <a class="btn btn-outline-info rounded" asp-route-Id="@item.Id" asp-controller="BookReview" asp-action="View"><i class="fa-solid fa-eye"></i></a>
+                      <a class="btn btn-outline-success rounded" asp-route-Id="@item.Id" asp-controller="BookReview" asp-action="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                       <a class="btn btn-outline-danger rounded" asp-route-Id="@item.Id" asp-controller="BookReview" asp-action="Delete"><i class="fa-solid fa-trash"></i></a>
+                   </div>
+               </div>
+           }
+        </div>
+    }
+    else
+    {
+        <h3>No Reviews Added!</h3>
+    }
+</div>
